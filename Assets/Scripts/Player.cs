@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.InputSystem;
 
 public class Player : MonoBehaviour
 {
@@ -27,7 +26,8 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        inputVec.x = Input.GetAxis("Horizontal");
+        inputVec.y = Input.GetAxis("Vertical");
     }
 
     private void FixedUpdate()
@@ -35,11 +35,6 @@ public class Player : MonoBehaviour
         // position movement
         Vector2 netxVec = inputVec * speed * Time.deltaTime;
         rigid.MovePosition(rigid.position + netxVec);
-    }
-
-    void OnMove(InputValue value)
-    {
-        inputVec = value.Get<Vector2>();
     }
 
     private void LateUpdate()
