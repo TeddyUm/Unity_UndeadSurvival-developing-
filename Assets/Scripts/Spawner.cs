@@ -21,8 +21,6 @@ public class Spawner : MonoBehaviour
         timer += Time.deltaTime;
         level = Mathf.FloorToInt(GameManager.instance.gameTime / 10f);
 
-        Debug.Log(spawnData[level].spriteType);
-
         if(timer > spawnData[level].spawnTime)
         {
             Spawn();
